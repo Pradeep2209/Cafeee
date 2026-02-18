@@ -1,0 +1,564 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #8B4513;
+    --secondary-color: #D2691E;
+    --accent-color: #C1552D;
+    --light-bg: #f9f7f4;
+    --white: #ffffff;
+    --dark-text: #2c2c2c;
+    --light-text: #666666;
+    --chef-special: #FFD700;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-text);
+    background-color: var(--light-bg);
+}
+
+/* MODAL STYLES */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-content {
+    background: var(--white);
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: var(--dark-text);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    padding: 0;
+}
+
+.modal-close:hover {
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding: 60px 30px;
+    text-align: center;
+}
+
+.cafe-logo {
+    font-size: 80px;
+    margin-bottom: 20px;
+    animation: bounce 1s ease infinite;
+    display: block;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.cafe-name {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.cafe-tagline {
+    font-size: 1.2rem;
+    color: var(--light-text);
+    font-style: italic;
+    margin-bottom: 40px;
+}
+
+.enter-button {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    border: none;
+    padding: 15px 50px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+}
+
+.enter-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(139, 69, 19, 0.4);
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.main-container {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* NAVBAR */
+.navbar {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    padding: 1.2rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    flex-shrink: 0;
+}
+
+.logo-section:hover {
+    opacity: 0.8;
+}
+
+.logo-icon {
+    font-size: 2rem;
+}
+
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav-search {
+    flex-grow: 1;
+    max-width: 400px;
+}
+
+.search-box {
+    width: 100%;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.search-box::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-box:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* DISCLAIMER */
+.disclaimer-section {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.05));
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+/* MENU SECTION */
+.menu-section {
+    padding: 60px 20px;
+    background-color: var(--light-bg);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 50px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.menu-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.menu-category-card {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 30px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(139, 69, 19, 0.2);
+    border-color: var(--secondary-color);
+}
+
+.card-icon {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.menu-category-card h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.card-tagline {
+    font-size: 0.95rem;
+    color: var(--light-text);
+    margin-bottom: 15px;
+}
+
+.arrow {
+    display: inline-block;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    transition: transform 0.3s ease;
+    margin-top: 10px;
+}
+
+.menu-category-card:hover .arrow {
+    transform: translateX(5px);
+}
+
+/* MENU ITEM PAGE */
+.menu-item-page {
+    animation: fadeIn 0.3s ease;
+    display: block;
+}
+
+.page-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.back-button {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateX(-5px);
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.page-tagline {
+    font-size: 1.2rem;
+    font-style: italic;
+    opacity: 0.95;
+}
+
+.page-content {
+    padding: 60px 20px;
+    background-color: var(--light-bg);
+    min-height: 60vh;
+}
+
+.items-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.item-category {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.category-name {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--secondary-color);
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.menu-item:hover {
+    background: linear-gradient(90deg, rgba(210, 105, 30, 0.05), transparent);
+    padding-left: 10px;
+}
+
+.item-info {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 200px;
+}
+
+.item-name {
+    font-size: 1.1rem;
+    color: var(--dark-text);
+    font-weight: 500;
+}
+
+.item-name.addon {
+    font-size: 0.95rem;
+    color: var(--light-text);
+    font-style: italic;
+    margin-left: 30px;
+}
+
+.chef-special {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(135deg, var(--chef-special), #FFA500);
+    border-radius: 50%;
+    font-size: 1.3rem;
+    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.4);
+    animation: pulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.item-price {
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+    font-weight: bold;
+    min-width: 100px;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.addon-section {
+    background: linear-gradient(135deg, rgba(210, 105, 30, 0.05), rgba(210, 105, 30, 0.02));
+    border-left: 4px solid var(--secondary-color);
+    padding: 15px 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.addon-section h4 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* FOOTER */
+.footer {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 40px;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+.footer-tagline {
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .menu-categories-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .navbar .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-search {
+        width: 100%;
+    }
+
+    .modal-body {
+        padding: 40px 20px;
+    }
+
+    .cafe-name {
+        font-size: 2rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .menu-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .item-price {
+        text-align: left;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-text {
+        font-size: 1.3rem;
+    }
+
+    .cafe-name {
+        font-size: 1.5rem;
+    }
+
+    .cafe-logo {
+        font-size: 50px;
+    }
+
+    .page-header {
+        padding: 30px 15px;
+    }
+
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .menu-categories-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .item-category {
+        padding: 15px;
+    }
+
+    .category-name {
+        font-size: 1.3rem;
+    }
+}

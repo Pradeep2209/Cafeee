@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinoue Cafe & Patisserie</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Welcome Modal/Popup -->
+    <div id="welcomeModal" class="modal-overlay active">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeWelcomeModal()">&times;</button>
+            <div class="modal-body">
+                <div class="cafe-logo">🍰</div>
+                <h1 class="cafe-name">Chinoue Cafe & Patisserie</h1>
+                <p class="cafe-tagline">Where flavors meet elegance</p>
+                <button class="enter-button" onclick="closeWelcomeModal()">Enter Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainContent" class="main-container" style="display: none;">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo-section" onclick="goToMain()">
+                    <span class="logo-icon">🍰</span>
+                    <h1 class="logo-text">Chinoue</h1>
+                </div>
+                <div class="nav-search">
+                    <input type="text" id="searchInput" placeholder="Search menu items..." class="search-box">
+                </div>
+            </div>
+        </nav>
+
+        <!-- Disclaimer Banner -->
+        <section class="disclaimer-section">
+            <p>⚠️ Disclaimer: Don't blame us if you Blush</p>
+        </section>
+
+        <!-- Main Menu Grid -->
+        <section class="menu-section">
+            <div class="container">
+                <h2 class="section-title">Main Menu</h2>
+                <div class="menu-categories-grid">
+                    <!-- Rice Bowl -->
+                    <div class="menu-category-card" onclick="navigateTo('rice-bowls')">
+                        <div class="card-icon">🍚</div>
+                        <h3>Rice Bowls</h3>
+                        <p class="card-tagline"><em>I'll fill you up slowly</em></p>
+                        <span class="arrow">→</span>
+                    </div>
+
+                    <!-- Pasta -->
+                    <div class="menu-category-card" onclick="navigateTo('pasta')">
+                        <div class="card-icon">🍝</div>
+                        <h3>Pasta</h3>
+                        <p class="card-tagline"><em>Creamy when handled Right</em></p>
+                        <span class="arrow">→</span>
+                    </div>
+
+                    <!-- Momos -->
+                    <div class="menu-category-card" onclick="navigateTo('momos')">
+                        <div class="card-icon">🥟</div>
+                        <h3>Momos</h3>
+                        <p class="card-tagline"><em>Hot juicy, Don't burn yourself</em></p>
+                        <span class="arrow">→</span>
+                    </div>
+
+                    <!-- Snacks -->
+                    <div class="menu-category-card" onclick="navigateTo('snacks')">
+                        <div class="card-icon">🍟</div>
+                        <h3>Snacks</h3>
+                        <p class="card-tagline"><em>Looks small Ruins self control</em></p>
+                        <span class="arrow">→</span>
+                    </div>
+
+                    <!-- Brownie -->
+                    <div class="menu-category-card" onclick="navigateTo('brownie')">
+                        <div class="card-icon">🍫</div>
+                        <h3>Brownie</h3>
+                        <p class="card-tagline"><em>Break me. I won't complain</em></p>
+                        <span class="arrow">→</span>
+                    </div>
+
+                    <!-- Waffle -->
+                    <div class="menu-category-card" onclick="navigateTo('waffle')">
+                        <div class="card-icon">🧇</div>
+                        <h3>Waffle</h3>
+                        <p class="card-tagline"><em>The messier, the better</em></p>
+                        <span class="arrow">→</span>
+                    </div>
+
+                    <!-- Cake Bowls -->
+                    <div class="menu-category-card" onclick="navigateTo('cake-bowls')">
+                        <div class="card-icon">🎂</div>
+                        <h3>Cake Bowls</h3>
+                        <p class="card-tagline"><em>Go deep. There's more inside</em></p>
+                        <span class="arrow">→</span>
+                    </div>
+
+                    <!-- Choco Dips -->
+                    <div class="menu-category-card" onclick="navigateTo('choco-dips')">
+                        <div class="card-icon">🍫</div>
+                        <h3>Choco Dips</h3>
+                        <p class="card-tagline"><em>Dip it slow. Don't rush this</em></p>
+                        <span class="arrow">→</span>
+                    </div>
+
+                    <!-- Mojito -->
+                    <div class="menu-category-card" onclick="navigateTo('mojito')">
+                        <div class="card-icon">🍃</div>
+                        <h3>Mojito</h3>
+                        <p class="card-tagline"><em>Sip me... things get sweaty!</em></p>
+                        <span class="arrow">→</span>
+                    </div>
+
+                    <!-- Latte -->
+                    <div class="menu-category-card" onclick="navigateTo('latte')">
+                        <div class="card-icon">☕</div>
+                        <h3>Latte</h3>
+                        <p class="card-tagline"><em>Pull me up until I finish</em></p>
+                        <span class="arrow">→</span>
+                    </div>
+
+                    <!-- Boba -->
+                    <div class="menu-category-card" onclick="navigateTo('boba')">
+                        <div class="card-icon">🧋</div>
+                        <h3>Boba</h3>
+                        <p class="card-tagline"><em>Suck it, Chew it, Smile</em></p>
+                        <span class="arrow">→</span>
+                    </div>
+
+                    <!-- Cold Coffee -->
+                    <div class="menu-category-card" onclick="navigateTo('cold-coffee')">
+                        <div class="card-icon">🧊</div>
+                        <h3>Cold Coffee</h3>
+                        <p class="card-tagline"><em>Hits hard</em></p>
+                        <span class="arrow">→</span>
+                    </div>
+
+                    <!-- Hot Chocolate -->
+                    <div class="menu-category-card" onclick="navigateTo('hot-chocolate')">
+                        <div class="card-icon">🍫</div>
+                        <h3>Hot Chocolate</h3>
+                        <p class="card-tagline"><em>Melts you slowly</em></p>
+                        <span class="arrow">→</span>
+                    </div>
+
+                    <!-- Hot Drinks -->
+                    <div class="menu-category-card" onclick="navigateTo('hot-drinks')">
+                        <div class="card-icon">🫖</div>
+                        <h3>Hot Drinks</h3>
+                        <p class="card-tagline"><em>Warms you from inside</em></p>
+                        <span class="arrow">→</span>
+                    </div>
+
+                    <!-- Cheese Cakes -->
+                    <div class="menu-category-card" onclick="navigateTo('cheesecakes')">
+                        <div class="card-icon">🍰</div>
+                        <h3>Cheese Cakes</h3>
+                        <p class="card-tagline"><em>Gentle at first. Then it's hits you</em></p>
+                        <span class="arrow">→</span>
+                    </div>
+
+                    <!-- Tresleches -->
+                    <div class="menu-category-card" onclick="navigateTo('tresleches')">
+                        <div class="card-icon">🎂</div>
+                        <h3>Tresleches</h3>
+                        <p class="card-tagline"><em>Gets better the deeper you go</em></p>
+                        <span class="arrow">→</span>
+                    </div>
+
+                    <!-- Desserts -->
+                    <div class="menu-category-card" onclick="navigateTo('desserts')">
+                        <div class="card-icon">🍮</div>
+                        <h3>Desserts</h3>
+                        <p class="card-tagline"><em>You know you want to</em></p>
+                        <span class="arrow">→</span>
+                    </div>
+
+                    <!-- Kunafa -->
+                    <div class="menu-category-card" onclick="navigateTo('kunafa')">
+                        <div class="card-icon">✨</div>
+                        <h3>Kunafa</h3>
+                        <p class="card-tagline"><em>Break it gently. Let it melt.</em></p>
+                        <span class="arrow">→</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 Chinoue Cafe & Patisserie. All rights reserved.</p>
+            <p class="footer-tagline">Crafted with love ❤️</p>
+        </footer>
+    </div>
+
+    <!-- Menu Pages Container -->
+    <div id="menuPageContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
