@@ -228,10 +228,10 @@ const menuData = {
     }
 };
 
-// Whatsapp notification link
-function sendWhatsApp() {
-  window.open("https://wa.me/919000909090?text=Website%20Updated%20Successfully.%20Check%20Here:%20https://pradeep2209.github.io/Cafeee/");
-}
+// // Whatsapp notification link
+// function sendWhatsApp() {
+//   window.open("https://wa.me/919000909090?text=Website%20Updated%20Successfully.%20Check%20Here:%20https://pradeep2209.github.io/Cafeee/");
+// }
 
 // Close Welcome Modal
 function closeWelcomeModal() {
